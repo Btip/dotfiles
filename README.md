@@ -1,9 +1,9 @@
-# Clone
+# Get the files
 
-Clone project into home folder
+Download or clone project into home folder
 
 ```
-git clone blah.com ~/.dotfiles
+git clone https://github.com/wesleyeff/dotfiles.git ~/.dotfiles
 ```
 
 # Setup
