@@ -1,0 +1,14 @@
+
+# Node
+alias rmnodemodules="rm -f package-lock.json && rm -rf node_modules && npm i"
+alias rmyarnmodules="rm -f yarn.lock && rm -f package-lock.json && rm -rf node_modules && yarn"
+
+# Elixir
+alias phx="source .env && iex -S mix phx.server"
+alias mix-test="MIX_ENV=test mix test"
+
+# Docker
+alias dc='docker compose'
+
+# Shell
+alias l='ls -1A'         # Lists in one column, hidden files.

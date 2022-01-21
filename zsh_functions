@@ -1,0 +1,16 @@
+## Load Env Vars
+function load_dir_env {
+  source "${PWD}/.env"
+}
+
+function check_for_env {
+  if [[ -f "${PWD}/.env" ]]; then
+    load_dir_env
+  fi
+}
+
+# for initial dir load
+check_for_env
+# checks when you change dirs
+chpwd_functions=(check_for_env)
+## End load env vars

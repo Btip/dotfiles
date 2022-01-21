@@ -1,0 +1,50 @@
+
+
+# Garden gitlab token for podium
+export GARDEN_LOGGER_TYPE=basic
+export GARDEN_GITLAB_TOKEN="xxxxx"
+
+
+#
+## Garden Aliases
+#
+
+alias tp="telepresence"
+
+alias gndir="cd && cd Developer/garden"
+alias garden-linked="gndir && garden get linked-repos"
+alias garden-update="gndir && git pull && garden update-remote all --force-refresh && garden-linked"
+alias garden-pause="gndir && ./pause.sh"
+alias garden-resume="gndir && ./unpause.sh && garden-update"
+alias garden-iex="gndir && ./elixir_debug.sh"
+garden-log() {
+  # If these are set it could cause issues with garden commands
+  AWS_ACCESS_KEY_ID=""
+  AWS_REGION=""
+  AWS_SECRET_ACCESS_KEY=""
+
+  SERVICE_NAME=$1
+
+  cd && cd Developer/garden && echo 'Getting logs for' $SERVICE_NAME && garden logs $SERVICE_NAME -f
+}
+
+gnlog() {
+  AWS_ACCESS_KEY_ID=""
+  AWS_REGION=""
+  AWS_SECRET_ACCESS_KEY=""
+  AWS_SF_PRODUCTS_BUCKET=""
+
+  CUR_DIR=`basename "$PWD"`
+  SERVICE_LOGS=""
+  if [[ $1 ]]; then
+    SERVICE_LOGS=$1
+  else
+    SERVICE_LOGS=$(echo $CUR_DIR | sed 's/_/-/g')
+  fi
+
+  gndir && echo 'Getting logs for' $SERVICE_LOGS && garden logs $SERVICE_LOGS -f
+}
+
+#
+## End Garden
+#

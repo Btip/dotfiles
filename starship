@@ -1,0 +1,5 @@
+## Start up starship prompt
+#  https://starship.rs/config/#prompt
+#  installed with brew
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.dotfiles/starship.toml
