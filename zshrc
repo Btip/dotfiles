@@ -7,7 +7,10 @@ source ~/.dotfiles/zsh_functions
 
 
 # ASDF
-. /usr/local/opt/asdf/asdf.sh
+# x86
+# . /usr/local/opt/asdf/asdf.sh
+# apple silicon
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

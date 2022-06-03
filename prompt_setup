@@ -1,37 +1,41 @@
-## Case insensitive path-completion
-#  https://github.com/zsh-users/zsh-completions
-#  installed with brew
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# ## Case insensitive path-completion
+# #  https://github.com/zsh-users/zsh-completions
+# #  installed with brew
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-  autoload -Uz compinit
-  compinit
-fi
-# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+#   autoload -Uz compinit
+#   compinit
+# fi
+# # zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 ## ZSH Syntax Highlighting
 #  https://github.com/zsh-users/zsh-syntax-highlighting
 #  installed with brew
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## History substring search
-#  https://github.com/zsh-users/zsh-history-substring-search
-#  installed with brew
-#
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# ## History substring search
+# #  https://github.com/zsh-users/zsh-history-substring-search
+# #  installed with brew
+# #
+# # source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-export PATH="/usr/local/sbin:$PATH"
 
-## Autosuggestions (fish like)
-#  https://github.com/zsh-users/zsh-autosuggestions
-#
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-bindkey '^[[C' forward-word
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# ## Autosuggestions (fish like)
+# #  https://github.com/zsh-users/zsh-autosuggestions
+# #
+# # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-## Ignore dups in history
+# # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+# bindkey '^[[C' forward-word
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# ## Ignore dups in history
 setopt histignoredups
 setopt histfindnodups # HIST_FIND_NO_DUPS
+
+# pdm completion zsh > /opt/homebrew/share/zsh/site-functions/_pdm
